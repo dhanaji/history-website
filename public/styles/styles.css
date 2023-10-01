@@ -1,0 +1,85 @@
+ 
+/* Add your CSS styles here */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #090636;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+section {
+    padding: 20px;
+}
+
+h2 {
+    color: #3498db;
+}
+
+.search {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.tabs {
+    text-align: center;
+}
+
+.tab-button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+/* Add more styles as needed */
+
+footer {
+    text-align: center;
+    background-color: #3498db;
+    color: white;
+    padding: 10px 0;
+}
+
+.active-tab {
+    background-color: #084770; /* Change to your preferred color */
+    color: white; /* Change to your preferred text color */
+}
+
+/* In your styles.css file */
+img {
+    max-width: 50%;
+    height: auto;
+}
+

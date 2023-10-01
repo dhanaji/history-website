@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/styles.css">
+    <title>Kids History</title>
+</head>
+<body>
+
+    <header>
+        <h2>History Topics</h2>
+
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/about.html">About</a></li> <!-- Link to About page -->
+                <li><a href="/feedback.html">Feedback</a></li> <!-- Link to Feedback page -->
+            </ul>
+        </nav>
+    </header>
+
+
+    <section id="home">
+        <div class="search">
+            <input type="text" placeholder="Search...">
+            <button>Search</button>
+            <button id="resetButton">Reset</button>
+
+        </div>
+        <div class="tabs">
+            <button class="tab-button active-tab" data-category="ancient">Ancient History</button>
+            <button class="tab-button" data-category="modern">Modern History</button>
+            <button class="tab-button" data-category="medieval">Medieval History</button>
+        </div>
+        <div class="content">
+            <!-- Content for each tab goes here -->
+            <!-- Ancient History Tab Content -->
+            <div class="tab-content" data-category="ancient">
+                <h3>Ancient History</h3>
+                <p>
+                    Ancient history is a fascinating journey into the past, exploring the civilizations, cultures, and events that shaped our world. Discover the wonders of ancient Egypt, the achievements of the Greeks, and much more.
+                </p>
+                <img src="https://cdn.britannica.com/57/122157-050-21261E20/Side-view-Sphinx-Great-Pyramid-of-Khufu.jpg" alt="Ancient Egypt">
+                <!-- Add images and additional text here -->
+            </div>
+
+            <!-- Modern History Tab Content -->
+            <div class="tab-content" data-category="modern">
+                <h3>Modern History</h3>
+                <p>
+                    Modern history encompasses the events, developments, and conflicts of recent centuries. Explore the industrial revolution, world wars, and the rise of modern nations in this exciting journey through time.
+                </p>
+                <img src="https://www.omicsonline.org/journal-highlight-images/world-history.jpeg" alt="Modern History">
+                
+                
+                <!-- Add images and additional text here -->
+
+            </div>
+
+            <!-- Medieval History Tab Content -->
+            <div class="tab-content" data-category="medieval">
+                <h3>Medieval History</h3>
+                <p>
+                    Medieval history transports you to a time of knights, castles, and epic quests. Discover the Middle Ages, a period of chivalry, feudalism, and the Crusades that left a lasting impact on our world.
+                </p>
+                <img src="https://assets.editorial.aetnd.com/uploads/2010/04/middle-ages-gettyimages-804452498.jpg" alt="Modern History">
+
+                
+                <!-- Add images and additional text here -->
+            </div>
+        </div>
+    </section>
+    <script src="/scripts/script.js"></script>
+    <script>
+        // JavaScript to initially hide all tab contents except the first one
+        document.addEventListener("DOMContentLoaded", function () {
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach((content, index) => {
+                if (index === 0) {
+                    content.style.display = 'block';
+                } else {
+                    content.style.display = 'none';
+                }
+            });
+        });
+
+        searchButton.addEventListener('click', () => {
+            const searchText = searchInput.value.trim().toLowerCase();
+
+            tabContents.forEach(content => {
+                const contentText = content.textContent.toLowerCase();
+                const highlightedText = highlightSearchText(contentText, searchText);
+                content.innerHTML = highlightedText;
+                content.style.display = 'block';
+            });
+        });
+
+        // Function to highlight search text within content
+        function highlightSearchText(contentText, searchText) {
+            const regex = new RegExp('(' + searchText.replace(/[-/\\^$*+?.()|[\]{}]/g, '\\$&') + ')', 'gi');
+            return contentText.replace(regex, '<span class="highlighted">$1</span>');
+        }
+        // JavaScript to reset search results
+        const resetButton = document.getElementById('resetButton');
+
+        resetButton.addEventListener('click', () => {
+            searchInput.value = ''; // Clear the search input
+            tabContents.forEach(content => {
+                content.style.display = 'block'; // Show all tab content
+            });
+        });
+
+    </script>
+</body>
+</html>
